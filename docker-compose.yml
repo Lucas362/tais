@@ -121,6 +121,8 @@ services:
     environment:
       - discovery.type=single-node
     volumes:
+      - elastic-backup:/usr/share/elasticsearch/backup
+      - ./elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - esdata:/usr/share/elasticsearch/data
 
   kibana:
@@ -189,3 +191,4 @@ services:
 volumes:
   esdata:
     driver: local
+  elastic-backup:
